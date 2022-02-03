@@ -2,7 +2,10 @@
 
 A simple commandless discord bot for 24/7 streaming of internet radio stations (e.g. SHOUTcast).
 
-![Discobot](https://i.imgur.com/pI3KB9I.png)
+
+##What's new
+- Compatible with the new Discord API for voice channels
+- Hang detection from the stream, based on ICY metadata 
 
 ## Requirements
 
@@ -18,10 +21,10 @@ First make sure you have all the required tools installed on your machine then c
 
 ```bash
 # Clone the repository
-git clone https://github.com/leinstay/discobot.git
+git clone https://github.com/mirg/discord_radio_player.git
 
 # Enter into the directory
-cd dmbot/
+cd discord_radio_player
 
 # Install the dependencies
 npm install
@@ -39,11 +42,11 @@ Example configuration for radio station:
 	"token":"{BOT TOKEN}",
 	"voicechannel":"{VOICE CHANNEL ID}",
 	"logchannel":"{TEXT CHANNEL ID}",
-	"activity":"Anime Radio",
+	"timeout":15000,
 	"list":[
 	{
-		"name":"Anime Radio",
-		"url":"https://pool.anison.fm/AniSonFM(320)?nocache=0.05"
+		"name":"Radio Nowy Świat",
+		"url":"https://stream.nowyswiat.online/mp3"
 	}
 	]
 }
@@ -56,7 +59,7 @@ Example configuration for custom playlist:
 	"token":"{BOT TOKEN}",
 	"voicechannel":"{VOICE CHANNEL ID}",
 	"logchannel":"{TEXT CHANNEL ID}",
-	"activity":"Ranobe Radio",
+	"timeout":15000,
 	"list":[
 	{
 		"name":"Shinkai Makoto - Five centimeters per second.",
@@ -87,7 +90,7 @@ Example configuration for custom playlist:
 Since the bot works even when there is no one in the channel, I strongly recommend to use forever or pm2 with cron autorestart for non-stop broadcasting (because of Discord API features the bot has a tendency to transmit silence after 20-30 hours of uptime).
 
 ```bash
-pm2 start index.js --name DiscoBot --log bot.log --time --restart-delay 5000 & pm2 start restart.js --name Restart
+pm2 start index.js --name DiscordRadioPlayer --log bot.log --time --restart-delay 5000 & pm2 start restart.js --name Restart
 ```
 
 Оr you can do it without process managers.
@@ -99,6 +102,7 @@ node index.js
 ## Author
 
 Vladimir "Leinstay" Belyaev
+Adam Gie
 
 ## License
 

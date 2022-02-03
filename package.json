@@ -1,6 +1,6 @@
 {
-  "name": "@leinstay/discobot",
-  "version": "1.0.1",
+  "name": "@mirg/discord_radio_player",
+  "version": "1.2.0",
   "description": "A simple commandless discord bot for 24/7 streaming of internet radio stations (e.g. SHOUTcast).",
   "main": "index.js",
   "keywords": [
@@ -12,20 +12,24 @@
     "radio"
   ],
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/leinstay/discobot.git"
+    "type": "git",
+    "url": "https://github.com/mirg/discord_radio_player.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Vladimir \"Leinstay\" Belyaev",
+  "author": "Vladimir \"Leinstay\" Belyaev / Adam Gie",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/opus": "^0.1.0",
+    "@discordjs/opus": "github:discordjs/opus",
+    "@discordjs/voice": "^0.8.0",
     "cron": "^1.8.2",
-    "discord.js": "^12.1.1",
+    "discord.js": "^13.6.0",
     "ffmpeg": "0.0.4",
     "fluent-ffmpeg": "^2.1.2",
-    "icy": "^2.1.0"
+    "icy": "^2.1.0",
+    "opusscript": "^0.0.8",
+    "readable-stream": "^3.6.0",
+    "sodium": "^3.0.2"
   }
 }
