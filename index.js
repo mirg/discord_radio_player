@@ -48,7 +48,16 @@ client.once('disconnect', () => {
 });
 
 client.on('message', async message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (message.author.bot) return;
+	if (!message.channel.id==logchannel) {
+		clientLogMessage("invalid channel");
+		return;
+	}
+
+	if (message.content.startsWith("restart")) {
+		clientLogMessage("Restarting....");
+		abortWithError(null);
+	}
 	const args = message.content.slice(prefix.length).split(' ');
 	const command = args.shift().toLowerCase();
 });
@@ -206,7 +215,9 @@ function abortWithError(connection) {
 	console.log(message);
 	const channel = client.channels.cache.get(logchannel);
 	channel.send(message).then (msg => {
-		connection.destroy();
+		if (connection) {
+			connection.destroy();
+		}
 		client.destroy();
 		process.exit(1);
 	});
@@ -227,7 +238,8 @@ function getFmtTime() {
 	let date = new Date();  
 	let options = {  
 		weekday: "long", year: "numeric", month: "short",  
-		day: "numeric", hour: "2-digit", minute: "2-digit"  
+		day: "numeric", hour: "2-digit", minute: "2-digit" ,
+		second: "2-digit"   
 	};  
 
 	return "["+date.toLocaleTimeString("pl-pl", options)+"]";
