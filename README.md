@@ -3,10 +3,10 @@
 A simple commandless discord bot for 24/7 streaming of internet radio stations (e.g. SHOUTcast).
 
 
-##What's new
+## What's new
 - Compatible with the new Discord API for voice channels
 - Hang detection from the stream, based on ICY metadata 
-- restart command within logchannel to stop processing, restart acually handled externally via process manager
+- restart command within logchannel to stop processing, restart actually handled externally via process manager
 
 ## Requirements
 
